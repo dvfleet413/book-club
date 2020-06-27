@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Home = (props) => {
+const Layout = (props) => {
     return (
         <div>
-            
+            {props.children}
         </div>
     )
 }
 
-export default Home;
+export default Layout;
