@@ -4,6 +4,7 @@ import Layout from './containers/Layout';
 import Home from './components/Home';
 import Books from './containers/Books';
 import BookDetail from './components/BookDetail';
+import CurrentBook from './containers/CurrentBook';
 import LoginForm from './components/LoginForm';
 import './App.css';
 
@@ -12,6 +13,7 @@ function App() {
     <Router>
       <Layout>
         <Switch>
+          <Route path='/books/current'><CurrentBook /></Route>
           <Route path='/books/:id'><BookDetail /></Route>
           <Route path='/books'><Books /></Route>
           <Route path='/login'><LoginForm /></Route>
