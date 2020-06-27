@@ -1,10 +1,12 @@
 import React from 'react';
+import useAuth from '../hooks/useAuth';
 import cookie from 'react-cookies';
 
 const Home = (props) => {
+    const user = useAuth()
     return (
         <div>
-            {cookie.load("Token")}
+            {user ? `Hello, ${user}` : "Hello, stranger!"}
         </div>
     )
 }
