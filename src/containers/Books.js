@@ -8,7 +8,7 @@ const Books = (props) => {
         fetch("https://localhost:5001/api/books")
             .then(r => r.json())
             .then(d => setBooks(d))
-    })
+    }, [])
 
     const bookCards = books.map(book => <BookCard key={book.bookId} book={book} />)
 
