@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import cookie from 'react-cookies';
 
 export default class LoginForm extends Component {
     state = {
