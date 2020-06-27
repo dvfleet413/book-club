@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cookie from 'react-cookies';
 
 export default class LoginForm extends Component {
     state = {
@@ -13,9 +14,31 @@ export default class LoginForm extends Component {
         })
     }
 
+    handleSubmit(e){
+        e.preventDefault()
+        const configObj = {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+                "Accepts": "application/json"
+            },
+            body: JSON.stringify({
+                "username": e.target[0].value,
+                "password": e.target[1].value
+            }),
+            credentials: "include"
+        }
+
+        fetch("https://localhost:5001/api/auth/login", configObj)
+            .then(r => r.json())
+            .then(d => {
+                console.log(d)
+            })
+    }
+
     render(){
         return(
-            <form>
+            <form onSubmit={e => this.handleSubmit(e)}>
                 <label htmlFor="username">Username: </label>
                 <input type="text" 
                        name="username" 
@@ -26,6 +49,7 @@ export default class LoginForm extends Component {
                        name="password" 
                        value={this.state.password}
                        onChange={e => this.handleChange(e)} />
+                <input type="submit" value="Login" />
             </form>
         )
     }
