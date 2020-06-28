@@ -12,7 +12,7 @@ const AuthNav = (props) => {
     const handleLogout = (e) => {
         e.preventDefault()
         logout()
-        setUser(null)
+        props.setUser(null)
         history.push('/')
     }
 

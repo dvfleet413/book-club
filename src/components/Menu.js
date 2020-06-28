@@ -20,7 +20,7 @@ const Menu = (props) => {
                         <Nav.Link>Current Book</Nav.Link>
                     </LinkContainer>
                 </Nav>
-                <AuthNav />
+                <AuthNav setUser={props.setUser}/>
             </Navbar.Collapse>
         </Navbar>
     )

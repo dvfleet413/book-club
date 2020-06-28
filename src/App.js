@@ -14,7 +14,7 @@ function App() {
 
   return (
     <Router>
-      <Layout>
+      <Layout setUser={setUser}>
         <Switch>
           <Route path='/books/current'><CurrentBook /></Route>
           <Route path='/books/:id'><BookDetail /></Route>
