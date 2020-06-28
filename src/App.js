@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import { useAuth } from './hooks/useAuth';
 import Layout from './containers/Layout';
 import Home from './components/Home';
+import Dashboard from './components/Dashboard';
 import Books from './containers/Books';
 import BookDetail from './components/BookDetail';
 import CurrentBook from './containers/CurrentBook';
@@ -20,7 +21,7 @@ function App() {
           <Route path='/books/:id'><BookDetail /></Route>
           <Route path='/books'><Books /></Route>
           <Route path='/login'><LoginForm setUser={setUser} /></Route>
-          <Route extact path='/'><Home /></Route>
+          <Route extact path='/'>{user ? <Dashboard /> : <Home />}</Route>
         </Switch>
       </Layout>
     </Router>
