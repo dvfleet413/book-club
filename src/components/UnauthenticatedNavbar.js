@@ -1,7 +1,8 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { LinkContainer } from 'react-router-bootstrap'
+import AuthNav from './AuthNav';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const UnauthenticatedNavbar = (props) => {
     return (
@@ -19,6 +20,7 @@ const UnauthenticatedNavbar = (props) => {
                         <Nav.Link>Current Book</Nav.Link>
                     </LinkContainer>
                 </Nav>
+                <AuthNav />
             </Navbar.Collapse>
         </Navbar>
     )
