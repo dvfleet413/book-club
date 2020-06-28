@@ -37,10 +37,13 @@ export const LoginForm = (props) => {
                 return r.json()
             })
             .then(d => {
-                props.setUser(d.user.userame)
+                props.setUser(d)
                 history.push('/')
             })
-            .catch(e => e.json().then(error => console.log(error)))
+            .catch(e => {
+                debugger
+                e.json().then(error => console.log(error))
+            })
     }
 
     return(

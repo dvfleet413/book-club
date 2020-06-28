@@ -5,7 +5,7 @@ const Layout = (props) => {
 
     return (
         <div>
-            <Menu setUser={props.setUser} />
+            <Menu user = {props.user} setUser={props.setUser} />
             {props.children}
         </div>
     )
