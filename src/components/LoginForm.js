@@ -31,8 +31,16 @@ export const LoginForm = (props) => {
         }
 
         fetch("https://localhost:5001/api/auth/login", configObj)
-            .then(r => r.json())
-            .then(d => console.log(d))
+            .then(r => {
+                if(!r.ok){throw new Error(r)}
+                return r.json()
+            })
+            .then(d => {
+                props.setUser(d.user.userame)
+            })
+            .catch(e => {
+                console.log(e)
+            })
     }
 
     return(
