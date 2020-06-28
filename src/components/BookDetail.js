@@ -9,7 +9,7 @@ const BookDetail = (props) => {
         fetch(`https://localhost:5001/api/books/${id}`)
             .then(r => r.json())
             .then(d => setBook(d))
-    }, [])
+    }, [id])
 
     return(
         <div>

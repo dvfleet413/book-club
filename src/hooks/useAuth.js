@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useAuth = () => {
+export const useAuth = () => {
     const [user, setUser] = useState(null)
     useEffect(() => {
         const configObj = {
@@ -17,14 +17,11 @@ const useAuth = () => {
                 if(!r.ok){throw new Error(r)}
                 return r.json()
             })
-            .then(d => {
-                setUser(d)
-            })
-            .catch(e => {
-                setUser(null)
-            })
+            .then(d => setUser(d))
+            .catch(e => setUser(null))
     })
-    return user;
+
+    return [user, setUser];
 }
 
 export default useAuth;

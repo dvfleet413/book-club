@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import AuthNav from './AuthNav';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const UnauthenticatedNavbar = (props) => {
+const Menu = (props) => {
     return (
         <Navbar bg="light" expand="md">
             <LinkContainer to="/">
@@ -26,4 +26,4 @@ const UnauthenticatedNavbar = (props) => {
     )
 }
 
-export default UnauthenticatedNavbar;
+export default Menu;

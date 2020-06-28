@@ -1,10 +1,11 @@
 import React from 'react';
-import UnauthenticatedNavbar from '../components/UnauthenticatedNavbar';
+import Menu from '../components/Menu';
 
 const Layout = (props) => {
+
     return (
         <div>
-            <UnauthenticatedNavbar />
+            <Menu />
             {props.children}
         </div>
     )
