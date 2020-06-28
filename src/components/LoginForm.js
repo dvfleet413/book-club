@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default class LoginForm extends Component {
-    state = {
-        username: '',
-        password: ''
-    }
+export const LoginForm = (props) => {
+    const [username, setUsername] = useState('')
 
-    handleChange(e){
+    const handleUsernameChange = (e) => {
         e.preventDefault()
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+        setUsername(e.target.value)
     }
 
-    handleSubmit(e){
+    const [password, setPassword] = useState('')
+
+    const handlePasswordChange = (e) => {
+        e.preventDefault()
+        setPassword(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
         e.preventDefault()
         const configObj = {
             method: "POST",
@@ -22,34 +24,32 @@ export default class LoginForm extends Component {
                 "Accepts": "application/json"
             },
             body: JSON.stringify({
-                "username": e.target[0].value,
-                "password": e.target[1].value
+                "username": username,
+                "password": password
             }),
             credentials: "include"
         }
 
         fetch("https://localhost:5001/api/auth/login", configObj)
             .then(r => r.json())
-            .then(d => {
-                console.log(d)
-            })
+            .then(d => console.log(d))
     }
 
-    render(){
-        return(
-            <form onSubmit={e => this.handleSubmit(e)}>
-                <label htmlFor="username">Username: </label>
-                <input type="text" 
-                       name="username" 
-                       value={this.state.username}
-                       onChange={e => this.handleChange(e)} />
-                <label htmlFor="password">Password: </label>
-                <input type="password" 
-                       name="password" 
-                       value={this.state.password}
-                       onChange={e => this.handleChange(e)} />
-                <input type="submit" value="Login" />
-            </form>
-        )
-    }
+    return(
+        <form onSubmit={e => handleSubmit(e)}>
+            <label htmlFor="username">Username: </label>
+            <input type="text" 
+                   name="username" 
+                   value={username}
+                   onChange={e => handleUsernameChange(e)} />
+            <label htmlFor="password">Password: </label>
+            <input type="password" 
+                   name="password" 
+                   value={password}
+                   onChange={e => handlePasswordChange(e)} />
+            <input type="submit" value="Login" />
+        </form>
+    )
 }
+
+export default LoginForm;
