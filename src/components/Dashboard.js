@@ -8,7 +8,7 @@ const Dashboard = (props) => {
 
     return(
         <div>
-            <h1>Hello, {user}!</h1>
+            <h1>Hello, {user && user.username}!</h1>
             <h3>Checkout this month's book:</h3>
             <CurrentBook />
             <ProgressCard />

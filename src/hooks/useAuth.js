@@ -19,7 +19,7 @@ export const useAuth = () => {
             })
             .then(d => setUser(d))
             .catch(e => setUser(null))
-    })
+    }, [])
 
     return [user, setUser];
 }
