@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 
 export const LoginForm = (props) => {
-    const [username, setUsername] = useState('')
+    const { history } = props
 
+    const [username, setUsername] = useState('')
     const handleUsernameChange = (e) => {
         e.preventDefault()
         setUsername(e.target.value)
     }
 
     const [password, setPassword] = useState('')
-
     const handlePasswordChange = (e) => {
         e.preventDefault()
         setPassword(e.target.value)
@@ -35,10 +36,11 @@ export const LoginForm = (props) => {
                 if(!r.ok){throw r}
                 return r.json()
             })
-            .then(d => props.setUser(d.user.userame))
+            .then(d => {
+                props.setUser(d.user.userame)
+                history.push('/')
+            })
             .catch(e => e.json().then(error => console.log(error)))
-        setUsername('')
-        setPassword('')
     }
 
     return(
@@ -58,4 +60,4 @@ export const LoginForm = (props) => {
     )
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

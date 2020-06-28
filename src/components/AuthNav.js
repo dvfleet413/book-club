@@ -1,16 +1,19 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from 'react-router-bootstrap';
+import { withRouter } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import logout from '../actions/logout';
 
 const AuthNav = (props) => {
+    const { history } = props
     const [user, setUser] = useAuth()
 
     const handleLogout = (e) => {
         e.preventDefault()
         logout()
         setUser(null)
+        history.push('/')
     }
 
     if(user){
@@ -30,4 +33,4 @@ const AuthNav = (props) => {
     }
 }
 
-export default AuthNav;
+export default withRouter(AuthNav);
