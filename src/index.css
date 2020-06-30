@@ -60,3 +60,31 @@ code {
   height: 2em;
   background-color: #0057b3;
 }
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 75%;
+  max-width: 500px;
+  text-align: center;
+  background: white;
+  border-radius: 15px;
+  padding: 0.5em;
+}
+
+.input {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5em;
+}
+
+.input input {
+  display: flex;
+  margin-left: auto;
+}

@@ -8,6 +8,7 @@ import Books from './containers/Books';
 import BookDetail from './components/BookDetail';
 import CurrentBook from './containers/CurrentBook';
 import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/books/:id'><BookDetail /></Route>
           <Route path='/books'><Books /></Route>
           <Route path='/login'><LoginForm setUser={setUser} /></Route>
+          <Route path='/register'><RegisterForm setUser={setUser} /></Route>
           <Route extact path='/'>{user ? <Dashboard /> : <Home />}</Route>
         </Switch>
       </Layout>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { config } from '../constants'
 
-export const LoginForm = (props) => {
+const LoginForm = (props) => {
     const { history } = props
 
     const [username, setUsername] = useState('')
@@ -48,19 +48,25 @@ export const LoginForm = (props) => {
     }
 
     return(
-        <form onSubmit={e => handleSubmit(e)}>
-            <label htmlFor="username">Username: </label>
-            <input type="text" 
-                   name="username" 
-                   value={username}
-                   onChange={e => handleUsernameChange(e)} />
-            <label htmlFor="password">Password: </label>
-            <input type="password" 
-                   name="password" 
-                   value={password}
-                   onChange={e => handlePasswordChange(e)} />
-            <input type="submit" value="Login" />
-        </form>
+        <div className="login-form">
+            <form onSubmit={e => handleSubmit(e)}>
+                <div className="input">
+                    <label htmlFor="username">Username: </label>
+                    <input type="text" 
+                        name="username" 
+                        value={username}
+                        onChange={e => handleUsernameChange(e)} /><br />
+                </div>
+                <div className="input">
+                    <label htmlFor="password">Password: </label>
+                    <input type="password" 
+                        name="password" 
+                        value={password}
+                        onChange={e => handlePasswordChange(e)} /><br />
+                </div>
+                <input type="submit" value="Login" className="btn btn-primary" />
+            </form>
+        </div>
     )
 }
 
