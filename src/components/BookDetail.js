@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { config } from '../constants'
+import BookCard from './BookCard';
 
 const BookDetail = (props) => {
     const [book, setBook] = useState({})
@@ -14,7 +15,7 @@ const BookDetail = (props) => {
 
     return(
         <div>
-            <h1>{book.title}</h1>
+            <BookCard book={book} />
         </div>
     )
 }

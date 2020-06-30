@@ -8,9 +8,12 @@ const Dashboard = (props) => {
 
     return(
         <div>
-            <h1>Hello, {user && user.username}!</h1>
-            <h3>Checkout this month's book:</h3>
-            <CurrentBook />
+            <div className="welcome">
+                <h1>Hello, {user && user.username}!</h1>
+                <h3>Checkout this month's book:</h3>
+            </div>
+            
+            <CurrentBook user={user} />
             <ProgressCard />
         </div>
     )
