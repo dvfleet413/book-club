@@ -1,7 +1,6 @@
 import React from 'react';
 import { useAuth } from '../hooks/useAuth';
 import CurrentBook from '../containers/CurrentBook';
-import ProgressCard from './ProgressCard';
 
 const Dashboard = (props) => {
     const [user, setUser] = useAuth()
@@ -14,7 +13,6 @@ const Dashboard = (props) => {
             </div>
             
             <CurrentBook user={user} />
-            <ProgressCard />
         </div>
     )
 }

@@ -35,3 +35,28 @@ code {
   height: auto;
   border-radius: 10px;
 }
+
+.current-book {
+  position: relative;
+}
+
+.chapter-bar {
+  position: relative;
+  height: 2em;
+  width: 85%;
+  border: solid black 1px;
+  overflow: hidden;
+  border-radius: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.chapter {
+  position: absolute;
+  transition: width 1s;
+  left: 0;
+  height: 2em;
+  background-color: #0057b3;
+}

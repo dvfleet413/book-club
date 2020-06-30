@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BookCard from '../components/BookCard';
 import BookCommit from '../components/BookCommit';
+import ProgressCard from '../components/ProgressCard';
 import { config } from '../constants';
 
 const CurrentBook = (props) => {
@@ -16,6 +17,7 @@ const CurrentBook = (props) => {
             <h1>This Month's Book Is...</h1>
             {book ? <BookCard book={book} /> : null}
             <BookCommit user={props.user} />
+            {book && <ProgressCard book={book} />}
         </div>
     )
 }
