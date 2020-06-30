@@ -16,7 +16,7 @@ const CurrentBook = (props) => {
         <div className="current-book">
             <h1>This Month's Book Is...</h1>
             {book ? <BookCard book={book} /> : null}
-            <BookCommit user={props.user} />
+            <BookCommit user={props.user} setUser={props.setUser} />
             {book && <ProgressCard book={book} />}
         </div>
     )

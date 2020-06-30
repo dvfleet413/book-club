@@ -23,7 +23,7 @@ function App() {
           <Route path='/books'><Books /></Route>
           <Route path='/login'><LoginForm setUser={setUser} /></Route>
           <Route path='/register'><RegisterForm setUser={setUser} /></Route>
-          <Route extact path='/'>{user ? <Dashboard /> : <Home />}</Route>
+          <Route extact path='/'>{user ? <Dashboard user={user} setUser={setUser} /> : <Home />}</Route>
         </Switch>
       </Layout>
     </Router>
