@@ -23,6 +23,9 @@ const AuthNav = (props) => {
     } else {
         return(
             <Nav className="ml-auto">
+                <LinkContainer to="/Register">
+                    <Nav.Link>Register</Nav.Link>
+                </LinkContainer>
                 <LinkContainer to="/login">
                     <Nav.Link>Login</Nav.Link>
                 </LinkContainer>

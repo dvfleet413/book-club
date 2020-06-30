@@ -1,5 +1,6 @@
 import React from 'react';
 import { config } from '../constants';
+import { Link } from 'react-router-dom';
 
 const BookCommit = (props) => {
 
@@ -23,9 +24,16 @@ const BookCommit = (props) => {
             .catch(e => console.log(e))
     }
 
-    if (!props.user || props.user.isActive){
+    if (!props.user){
+        return (
+            <div>
+                <Link to='/login'>Login</Link> or <Link to='/register'>Create an Account</Link>
+            </div>
+        )
+    } else if (props.user.isActive){
         return null
-    } else {
+    }
+    else {
         return (
             <button className="btn btn-primary" onClick={handleClick}>I'm in!</button>
         )
