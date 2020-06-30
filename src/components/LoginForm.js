@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import { config } from '../constants'
 
 export const LoginForm = (props) => {
     const { history } = props
@@ -31,7 +32,7 @@ export const LoginForm = (props) => {
             credentials: "include"
         }
 
-        fetch("https://localhost:5001/api/auth/login", configObj)
+        fetch(`${config.url.API_URL}/api/auth/login`, configObj)
             .then(r => {
                 if(!r.ok){throw r}
                 return r.json()

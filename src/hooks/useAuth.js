@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { config } from '../constants'
 
 export const useAuth = () => {
     const [user, setUser] = useState(null)
@@ -12,7 +13,7 @@ export const useAuth = () => {
             body: JSON.stringify({}),
             credentials: "include"
         }
-        fetch("https://localhost:5001/api/auth/getcurrentuser", configObj)
+        fetch(`${config.url.API_URL}/api/auth/getcurrentuser`, configObj)
             .then(r => {
                 if(!r.ok){throw new Error(r)}
                 return r.json()

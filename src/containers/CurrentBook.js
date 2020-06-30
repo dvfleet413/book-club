@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import BookCard from '../components/BookCard';
+import { config } from '../constants'
 
 const CurrentBook = (props) => {
     const [book, setBook] = useState();
     useEffect(() => {
-        fetch("https://localhost:5001/api/books/current")
+        fetch(`${config.url.API_URL}/api/books/current`)
             .then(r => r.json())
             .then(d => setBook(d))
     }, [])

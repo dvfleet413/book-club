@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { config } from '../constants'
 
 const BookDetail = (props) => {
     const [book, setBook] = useState({})
     const {id} = useParams();
 
     useEffect(() => {
-        fetch(`https://localhost:5001/api/books/${id}`)
+        fetch(`${config.url.API_URL}/api/books/${id}`)
             .then(r => r.json())
             .then(d => setBook(d))
     }, [id])
