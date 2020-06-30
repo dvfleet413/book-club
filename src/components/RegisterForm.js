@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { config } from '../constants';
+import { withRouter } from 'react-router-dom';
 
 const RegisterForm = (props) => {
+    const { history } = props
+
     const [username, setUsername] = useState()
     const handleUsernameChange = (e) => {
         setUsername(e.target.value)
@@ -32,12 +35,17 @@ const RegisterForm = (props) => {
             },
             body: JSON.stringify({
                 username: username,
-                password: password
+                email: email,
+                password: password,
+                passwordConfirm: passwordConfirm
             })
         }
         fetch(`${config.url.API_URL}/api/auth/register`, configObj)
             .then(r => r.json())
-            .then(d => console.log(d))
+            .then(d => {
+                props.setUser(d)
+                history.push('/')
+            })
             .catch(e => console.log(e))
     }
 
@@ -67,7 +75,7 @@ const RegisterForm = (props) => {
                 </div>
                 <div className="input">
                     <label htmlFor="password">Confirm Password: </label>
-                    <input type="password-confirm" 
+                    <input type="password" 
                         name="password-confirm" 
                         value={passwordConfirm}
                         onChange={e => handlePasswordConfirmChange(e)} /><br />
@@ -78,4 +86,4 @@ const RegisterForm = (props) => {
     )
 }
 
-export default RegisterForm;
+export default withRouter(RegisterForm);
