@@ -30,7 +30,7 @@ const Dashboard = (props) => {
             <div>
                 <div className="welcome">
                     <h1>Hello, {props.user.username}!</h1>
-                    {props.user.isActive ? <div><p>You are an active member of the Socond Chance Book Club</p><button className="btn btn-primary" onClick={handleClick}>Take a break</button></div> : <p>Check out this month's book...</p>}
+                    {props.user.isActive ? <div><p>You are an active member of the Second Chance Book Club</p><button className="btn btn-primary" onClick={handleClick}>Take a break</button></div> : <p>Check out this month's book...</p>}
                 </div>
                 
                 <CurrentBook user={props.user} setUser={props.setUser}  />
